@@ -1,0 +1,358 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9E374157-77CF-4D02-96FB-97621862EC23}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VastGIS.Common.UI</RootNamespace>
+    <AssemblyName>VastGIS.Common.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Syncfusion.Grid.Base, Version=15.1450.0.33, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Grid.Grouping.Base, Version=15.1450.0.33, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Grid.Grouping.Windows, Version=15.1450.0.33, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Grid.Windows, Version=15.1450.0.33, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.GridHelperClasses.Windows, Version=15.1450.0.33, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Grouping.Base, Version=15.1450.0.33, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Grouping.Windows, Version=15.1450.0.33, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Shared.Base, Version=15.1450.0.33, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Shared.Windows, Version=15.1450.0.33, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Tools.Base, Version=15.1450.0.33, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Tools.Windows, Version=15.1450.0.33, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CompositionRoot.cs" />
+    <Compile Include="Controls\ConfigPageBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ConfigPageBase.Designer.cs">
+      <DependentUpon>ConfigPageBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ConfigPageControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ConfigPageControl.Designer.cs">
+      <DependentUpon>ConfigPageControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ConfigPanelControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ConfigPanelControl.Designer.cs">
+      <DependentUpon>ConfigPanelControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CustomGridControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DataGridViewAdapter.cs" />
+    <Compile Include="Controls\DockPanelControlBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\GridAdapter.cs" />
+    <Compile Include="Controls\GridCellColorModel.cs" />
+    <Compile Include="Controls\GridCellColorRenderer.cs" />
+    <Compile Include="Controls\GridComboBoxCellModelEx.cs" />
+    <Compile Include="Controls\GridComboBoxCellRendererEx.cs" />
+    <Compile Include="Controls\GridComboItem.cs" />
+    <Compile Include="Controls\IGridList.cs" />
+    <Compile Include="Controls\ImageCombo.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ImageComboBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ImageComboItem.cs" />
+    <Compile Include="Controls\LinkLabelCellModelEx.cs" />
+    <Compile Include="Controls\LinkLabelCellRendererEx.cs" />
+    <Compile Include="Controls\LinkLabelEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ListBoxEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\MultiColumnTreeViewFixed.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\NetColorPicker.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\NetColorPicker.Designer.cs">
+      <DependentUpon>NetColorPicker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NodeData.cs" />
+    <Compile Include="Controls\Office2007ColorPicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Office2007ColorPicker.Designer.cs">
+      <DependentUpon>Office2007ColorPicker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Office2007ColorPlate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Office2007ColorPlate.Designer.cs">
+      <DependentUpon>Office2007ColorPlate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Office2007MenuHelper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\Office2007MenuHelper.designer.cs">
+      <DependentUpon>Office2007MenuHelper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\OpenFileDialogCellModel.cs" />
+    <Compile Include="Controls\OpenFileDialogCellRenderer.cs" />
+    <Compile Include="Controls\SectionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SectionControl.Designer.cs">
+      <DependentUpon>SectionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\StronglyTypedDataGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\StronglyTypedGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TabPropertiesControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TabPropertiesControl.Designer.cs">
+      <DependentUpon>TabPropertiesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TooltipEventArgs.cs" />
+    <Compile Include="Controls\ToolTipGridEventArgs.cs" />
+    <Compile Include="Controls\TransparencyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TransparencyControl.Designer.cs">
+      <DependentUpon>TransparencyControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TreeViewBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TwoColumnTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\WatermarkTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Docking\DockHelper.cs" />
+    <Compile Include="Docking\DockPanel.cs" />
+    <Compile Include="Docking\DockPanelCollection.cs" />
+    <Compile Include="Docking\DockPanelInfo.cs" />
+    <Compile Include="Docking\DockPanelKeys.cs" />
+    <Compile Include="Enums\Enums.cs" />
+    <Compile Include="Forms\AppView.cs" />
+    <Compile Include="Forms\CheckBoxForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CheckBoxForm.Designer.cs">
+      <DependentUpon>CheckBoxForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CustomDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CustomDialog.Designer.cs">
+      <DependentUpon>CustomDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\VGWindowForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\VGWindowView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\VGWindowView.Designer.cs">
+      <DependentUpon>VGWindowView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\VGWindowView2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NewVGWindowView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NewVGWindowView.Designer.cs">
+      <DependentUpon>NewVGWindowView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OptionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OptionsForm.Designer.cs">
+      <DependentUpon>OptionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TypedOptionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Helpers\ComboBoxEnumItem.cs" />
+    <Compile Include="Helpers\ComboBoxHelper.cs" />
+    <Compile Include="Helpers\CommandBarHelper.cs" />
+    <Compile Include="Helpers\GenericHelper.cs" />
+    <Compile Include="Helpers\GroupingGridHelper.cs" />
+    <Compile Include="Helpers\ListViewHelper.cs" />
+    <Compile Include="Helpers\OptionListHelper.cs" />
+    <Compile Include="Helpers\SplitContainerHelper.cs" />
+    <Compile Include="Helpers\SyncfusionSerializationHelper.cs" />
+    <Compile Include="Helpers\ToolbarHelper.cs" />
+    <Compile Include="Helpers\ToolTipHelper.cs" />
+    <Compile Include="Helpers\TreeViewAdvHelper.cs" />
+    <Compile Include="Helpers\ViewMenuHelper.cs" />
+    <Compile Include="Menu\Classic\MainMenuStripMenu.cs" />
+    <Compile Include="Menu\Classic\MenuStripDropDownItem.cs" />
+    <Compile Include="Menu\Classic\MenuStripItem.cs" />
+    <Compile Include="Menu\Classic\MenuStripItemCollection.cs" />
+    <Compile Include="Menu\Classic\MenuStripMenu.cs" />
+    <Compile Include="Menu\Classic\MenuStripMenuMute.cs" />
+    <Compile Include="Menu\Classic\MenuStripSeparator.cs" />
+    <Compile Include="Menu\ComboBoxMenuItem.cs" />
+    <Compile Include="Menu\DropDownMenuItem.cs" />
+    <Compile Include="Menu\ItemCollectionBase.cs" />
+    <Compile Include="Menu\MainMenuKeys.cs" />
+    <Compile Include="Menu\MainSyncfusionMenu.cs" />
+    <Compile Include="Menu\MenuBase.cs" />
+    <Compile Include="Menu\MenuFactory.cs" />
+    <Compile Include="Menu\MenuIndex.cs" />
+    <Compile Include="Menu\MenuItem.cs" />
+    <Compile Include="Menu\MenuItemBase.cs" />
+    <Compile Include="Menu\MenuItemCollection.cs" />
+    <Compile Include="Menu\MenuItemMetadata.cs" />
+    <Compile Include="Menu\MenuLabel.cs" />
+    <Compile Include="Menu\MenuServiceBase.cs" />
+    <Compile Include="Menu\Ribbon\IRibbonMenuBase.cs" />
+    <Compile Include="Menu\Ribbon\RibbonMenu.cs" />
+    <Compile Include="Menu\Ribbon\RibbonMenuBase.cs" />
+    <Compile Include="Menu\Ribbon\RibbonMenuItemCollection.cs" />
+    <Compile Include="Menu\StatusBar.cs" />
+    <Compile Include="Menu\StatusBarDropDown.cs" />
+    <Compile Include="Menu\StatusBarItem.cs" />
+    <Compile Include="Menu\StatusItemCollection.cs" />
+    <Compile Include="Menu\SyncfusionMenu.cs" />
+    <Compile Include="Menu\Toolbar.cs" />
+    <Compile Include="Menu\ToolbarCollection.cs" />
+    <Compile Include="Menu\ToolbarCollectionBase.cs" />
+    <Compile Include="Menu\ToolbarCollectionMain.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Style\IStyleService.cs" />
+    <Compile Include="Style\StyleSettings.cs" />
+    <Compile Include="Style\SyncfusionStyleService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\ConfigPageControl.resx">
+      <DependentUpon>ConfigPageControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ConfigPanelControl.resx">
+      <DependentUpon>ConfigPanelControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\NetColorPicker.resx">
+      <DependentUpon>NetColorPicker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Office2007ColorPlate.resx">
+      <DependentUpon>Office2007ColorPlate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Office2007MenuHelper.resx">
+      <DependentUpon>Office2007MenuHelper.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SectionControl.resx">
+      <DependentUpon>SectionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TabPropertiesControl.resx">
+      <DependentUpon>TabPropertiesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TransparencyControl.resx">
+      <DependentUpon>TransparencyControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CheckBoxForm.resx">
+      <DependentUpon>CheckBoxForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CustomDialog.resx">
+      <DependentUpon>CustomDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\VGWindowForm.resx">
+      <DependentUpon>VGWindowForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\VGWindowView.resx">
+      <DependentUpon>VGWindowView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OptionsForm.resx">
+      <DependentUpon>OptionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TypedOptionsForm.resx">
+      <DependentUpon>TypedOptionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_clear_textbox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MapWindow.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\palette.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Utility\BindingListView.csproj">
+      <Project>{75af36a8-7797-4023-b183-5b63d448420a}</Project>
+      <Name>BindingListView</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VastGIS.Common.Api\VastGIS.Common.Api.csproj">
+      <Project>{ECABDB45-3D7B-4E33-84ED-F6EC5E46D6CB}</Project>
+      <Name>VastGIS.Common.Api</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VastGIS.Common.Plugins\VastGIS.Common.Plugins.csproj">
+      <Project>{37D59241-BE67-401E-83FE-444A4C928CE0}</Project>
+      <Name>VastGIS.Common.Plugins</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VastGIS.Common.Shared\VastGIS.Common.Shared.csproj">
+      <Project>{4A5CEFD0-73EC-459C-BB71-9DC992FECFA6}</Project>
+      <Name>VastGIS.Common.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Legacy\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

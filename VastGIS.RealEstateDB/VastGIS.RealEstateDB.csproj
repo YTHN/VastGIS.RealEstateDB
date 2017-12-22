@@ -1,0 +1,1180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FFC113F2-4D4E-4DF8-9ED1-620F37480C0D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VastGIS.RealEstateDB</RootNamespace>
+    <AssemblyName>VastGIS.RealEstateDB</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="nunit.framework, Version=3.9.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.9.0\lib\net45\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SpatialiteSharp, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SpatialiteSharp.4.2.0.0\lib\SpatialiteSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.Grid.Base, Version=15.1450.0.33, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Grid.Grouping.Base, Version=15.1450.0.33, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Grid.Grouping.Windows, Version=15.1450.0.33, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Grid.Windows, Version=15.1450.0.33, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.GridHelperClasses.Windows, Version=15.1450.0.33, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Grouping.Base, Version=15.1450.0.33, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Grouping.Windows, Version=15.1450.0.33, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Shared.Base, Version=15.1450.0.33, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Shared.Windows, Version=15.1450.0.33, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.SpellChecker.Base, Version=15.1460.0.33, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.Tools.Base, Version=15.1450.0.33, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Tools.Windows, Version=15.1450.0.33, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.106.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.106.0\lib\net45\System.Data.SQLite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppContext.cs" />
+    <Compile Include="Commands\File\CmdCreateNewMap.cs" />
+    <Compile Include="Commands\File\CmdOpenProject.cs" />
+    <Compile Include="Commands\File\CmdQuit.cs" />
+    <Compile Include="Commands\File\CmdSaveProject.cs" />
+    <Compile Include="Commands\File\CmdSaveProjectAs.cs" />
+    <Compile Include="Commands\File\CmdSettings.cs" />
+    <Compile Include="CompositionRoot.cs" />
+    <Compile Include="Configuration\DataFormatsConfigPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\DataFormatsConfigPage.Designer.cs">
+      <DependentUpon>DataFormatsConfigPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\GeneralConfigPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\GeneralConfigPage.Designer.cs">
+      <DependentUpon>GeneralConfigPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\PluginGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Configuration\PluginsConfigPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\PluginsConfigPage.Designer.cs">
+      <DependentUpon>PluginsConfigPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\Plugins\PluginInfo.cs" />
+    <Compile Include="Configuration\Plugins\PluginProvider.cs" />
+    <Compile Include="Controls\AssembliesGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\AssemblyInfo.cs" />
+    <Compile Include="Controls\ConfigTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enums\Enums.cs" />
+    <Compile Include="ExceptionHandler.cs" />
+    <Compile Include="Forms\ErrorView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ErrorView.Designer.cs">
+      <DependentUpon>ErrorView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SplashView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SplashView.Designer.cs">
+      <DependentUpon>SplashView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmCreateDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCreateDB.Designer.cs">
+      <DependentUpon>frmCreateDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\DockPanelHelper.cs" />
+    <Compile Include="Helpers\Sandbox.cs" />
+    <Compile Include="Helpers\UpdaterHelper.cs" />
+    <Compile Include="Helpers\ZDSqlHelper.cs" />
+    <Compile Include="Listeners\MainPluginListener.cs" />
+    <Compile Include="Menu\ContextMenuCommand.cs" />
+    <Compile Include="Menu\ContextMenuPresenter.cs" />
+    <Compile Include="Menu\ContextMenuView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\ContextMenuView.Designer.cs">
+      <DependentUpon>ContextMenuView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\MenuCommands.cs" />
+    <Compile Include="Menu\MenuGenerator.cs" />
+    <Compile Include="Menu\MenuKeys.cs" />
+    <Compile Include="Menu\MenuListener.cs" />
+    <Compile Include="Menu\MenuUpdater.cs" />
+    <Compile Include="Menu\PluginsMenuHelper.cs" />
+    <Compile Include="Menu\StatusBarKeys.cs" />
+    <Compile Include="Menu\StatusBarListener.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\AboutPresenter.cs" />
+    <Compile Include="Views\AboutView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AboutView.Designer.cs">
+      <DependentUpon>AboutView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Abstract\IAboutView.cs" />
+    <Compile Include="Views\Abstract\IConfigView.cs" />
+    <Compile Include="Views\Abstract\IWelcomeView.cs" />
+    <Compile Include="Views\ConfigCommand.cs" />
+    <Compile Include="Views\ConfigPresenter.cs" />
+    <Compile Include="Views\ConfigView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ConfigView.Designer.cs">
+      <DependentUpon>ConfigView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ConfigViewModel.cs" />
+    <Compile Include="Views\MainPresenter.cs" />
+    <Compile Include="Views\MainView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MainView.Designer.cs">
+      <DependentUpon>MainView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NewMainView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\NewMainView.Designer.cs">
+      <DependentUpon>NewMainView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WelcomePresenter.cs" />
+    <Compile Include="Views\WelcomeView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\WelcomeView.Designer.cs">
+      <DependentUpon>WelcomeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WelcomeViewModel.cs" />
+    <Content Include="Coordinate Systems\Geographic Coordinate Systems\Asia\Beijing 1954.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Geographic Coordinate Systems\Asia\Xian 1980.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Geographic Coordinate Systems\World\ITRF 2008.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Geographic Coordinate Systems\World\WGS 1984.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 3 Degree GK CM 102E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 3 Degree GK CM 105E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 3 Degree GK CM 108E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 3 Degree GK CM 111E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 3 Degree GK CM 114E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 3 Degree GK CM 117E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 3 Degree GK CM 120E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 3 Degree GK CM 123E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 3 Degree GK CM 126E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 3 Degree GK CM 129E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 3 Degree GK CM 132E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 3 Degree GK CM 135E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 3 Degree GK CM 75E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 3 Degree GK CM 78E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 3 Degree GK CM 81E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 3 Degree GK CM 84E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 3 Degree GK CM 87E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 3 Degree GK CM 90E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 3 Degree GK CM 93E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 3 Degree GK CM 96E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 3 Degree GK CM 99E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 3 Degree GK Zone 25.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 3 Degree GK Zone 26.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 3 Degree GK Zone 27.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 3 Degree GK Zone 28.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 3 Degree GK Zone 29.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 3 Degree GK Zone 30.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 3 Degree GK Zone 31.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 3 Degree GK Zone 32.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 3 Degree GK Zone 33.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 3 Degree GK Zone 34.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 3 Degree GK Zone 35.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 3 Degree GK Zone 36.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 3 Degree GK Zone 37.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 3 Degree GK Zone 38.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 3 Degree GK Zone 39.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 3 Degree GK Zone 40.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 3 Degree GK Zone 41.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 3 Degree GK Zone 42.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 3 Degree GK Zone 43.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 3 Degree GK Zone 44.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 3 Degree GK Zone 45.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 GK Zone 13.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 GK Zone 13N.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 GK Zone 14.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 GK Zone 14N.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 GK Zone 15.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 GK Zone 15N.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 GK Zone 16.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 GK Zone 16N.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 GK Zone 17.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 GK Zone 17N.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 GK Zone 18.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 GK Zone 18N.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 GK Zone 19.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 GK Zone 19N.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 GK Zone 20.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 GK Zone 20N.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 GK Zone 21.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 GK Zone 21N.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 GK Zone 22.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 GK Zone 22N.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 GK Zone 23.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Beijing 1954\Beijing 1954 GK Zone 23N.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 3 Degree GK CM 102E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 3 Degree GK CM 105E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 3 Degree GK CM 108E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 3 Degree GK CM 111E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 3 Degree GK CM 114E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 3 Degree GK CM 117E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 3 Degree GK CM 120E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 3 Degree GK CM 123E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 3 Degree GK CM 126E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 3 Degree GK CM 129E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 3 Degree GK CM 132E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 3 Degree GK CM 135E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 3 Degree GK CM 75E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 3 Degree GK CM 78E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 3 Degree GK CM 81E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 3 Degree GK CM 84E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 3 Degree GK CM 87E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 3 Degree GK CM 90E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 3 Degree GK CM 93E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 3 Degree GK CM 96E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 3 Degree GK CM 99E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 3 Degree GK Zone 25.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 3 Degree GK Zone 26.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 3 Degree GK Zone 27.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 3 Degree GK Zone 28.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 3 Degree GK Zone 29.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 3 Degree GK Zone 30.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 3 Degree GK Zone 31.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 3 Degree GK Zone 32.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 3 Degree GK Zone 33.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 3 Degree GK Zone 34.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 3 Degree GK Zone 35.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 3 Degree GK Zone 36.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 3 Degree GK Zone 37.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 3 Degree GK Zone 38.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 3 Degree GK Zone 39.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 3 Degree GK Zone 40.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 3 Degree GK Zone 41.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 3 Degree GK Zone 42.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 3 Degree GK Zone 43.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 3 Degree GK Zone 44.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 3 Degree GK Zone 45.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 GK CM 105E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 GK CM 111E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 GK CM 117E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 GK CM 123E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 GK CM 129E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 GK CM 135E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 GK CM 75E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 GK CM 81E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 GK CM 87E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 GK CM 93E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 GK CM 99E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 GK Zone 13.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 GK Zone 14.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 GK Zone 15.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 GK Zone 16.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 GK Zone 17.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 GK Zone 18.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 GK Zone 19.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 GK Zone 20.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 GK Zone 21.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 GK Zone 22.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\CGCS2000\CGCS2000 GK Zone 23.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 3 Degree GK CM 102E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 3 Degree GK CM 105E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 3 Degree GK CM 108E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 3 Degree GK CM 111E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 3 Degree GK CM 114E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 3 Degree GK CM 117E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 3 Degree GK CM 120E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 3 Degree GK CM 123E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 3 Degree GK CM 126E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 3 Degree GK CM 129E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 3 Degree GK CM 132E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 3 Degree GK CM 135E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 3 Degree GK CM 75E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 3 Degree GK CM 78E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 3 Degree GK CM 81E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 3 Degree GK CM 84E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 3 Degree GK CM 87E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 3 Degree GK CM 90E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 3 Degree GK CM 93E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 3 Degree GK CM 96E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 3 Degree GK CM 99E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 3 Degree GK Zone 25.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 3 Degree GK Zone 26.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 3 Degree GK Zone 27.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 3 Degree GK Zone 28.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 3 Degree GK Zone 29.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 3 Degree GK Zone 30.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 3 Degree GK Zone 31.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 3 Degree GK Zone 32.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 3 Degree GK Zone 33.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 3 Degree GK Zone 34.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 3 Degree GK Zone 35.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 3 Degree GK Zone 36.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 3 Degree GK Zone 37.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 3 Degree GK Zone 38.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 3 Degree GK Zone 39.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 3 Degree GK Zone 40.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 3 Degree GK Zone 41.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 3 Degree GK Zone 42.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 3 Degree GK Zone 43.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 3 Degree GK Zone 44.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 3 Degree GK Zone 45.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 GK CM 105E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 GK CM 111E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 GK CM 117E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 GK CM 123E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 GK CM 129E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 GK CM 135E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 GK CM 75E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 GK CM 81E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 GK CM 87E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 GK CM 93E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 GK CM 99E.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 GK Zone 13.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 GK Zone 14.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 GK Zone 15.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 GK Zone 16.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 GK Zone 17.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 GK Zone 18.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 GK Zone 19.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 GK Zone 20.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 GK Zone 21.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 GK Zone 22.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 GK Zone 23.prj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\icon_mapwindow.ico" />
+    <Content Include="x64\spatialite\libfreexl-1.dll" />
+    <Content Include="x64\spatialite\libgcc_s_seh_64-1.dll" />
+    <Content Include="x64\spatialite\libgeos-3-4-2.dll" />
+    <Content Include="x64\spatialite\libgeos_c-1.dll" />
+    <Content Include="x64\spatialite\libiconv-2.dll" />
+    <Content Include="x64\spatialite\liblzma-5.dll" />
+    <Content Include="x64\spatialite\libproj-0.dll" />
+    <Content Include="x64\spatialite\libstdc++_64-6.dll" />
+    <Content Include="x64\spatialite\libxml2-2.dll" />
+    <Content Include="x64\spatialite\mod_spatialite.dll" />
+    <Content Include="x64\spatialite\zlib1.dll" />
+    <Content Include="x86\spatialite\libfreexl-1.dll" />
+    <Content Include="x86\spatialite\libgcc_s_dw2-1.dll" />
+    <Content Include="x86\spatialite\libgeos-3-4-2.dll" />
+    <Content Include="x86\spatialite\libgeos_c-1.dll" />
+    <Content Include="x86\spatialite\libiconv-2.dll" />
+    <Content Include="x86\spatialite\liblzma-5.dll" />
+    <Content Include="x86\spatialite\libproj-0.dll" />
+    <Content Include="x86\spatialite\libstdc++-6.dll" />
+    <Content Include="x86\spatialite\libxml2-2.dll" />
+    <Content Include="x86\spatialite\mod_spatialite.dll" />
+    <Content Include="x86\spatialite\zlib1.dll" />
+    <EmbeddedResource Include="Configuration\DataFormatsConfigPage.resx">
+      <DependentUpon>DataFormatsConfigPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\GeneralConfigPage.resx">
+      <DependentUpon>GeneralConfigPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\PluginsConfigPage.resx">
+      <DependentUpon>PluginsConfigPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ErrorView.resx">
+      <DependentUpon>ErrorView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SplashView.resx">
+      <DependentUpon>SplashView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCreateDB.resx">
+      <DependentUpon>frmCreateDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\ContextMenuView.resx">
+      <DependentUpon>ContextMenuView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Views\AboutView.resx">
+      <DependentUpon>AboutView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ConfigView.resx">
+      <DependentUpon>ConfigView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MainView.resx">
+      <DependentUpon>MainView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\NewMainView.resx">
+      <DependentUpon>NewMainView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\WelcomeView.resx">
+      <DependentUpon>WelcomeView.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Content Include="icon_mapwindow.ico" />
+    <Content Include="MW5.ico" />
+    <Content Include="Templates\vastgis.sqlite">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ico_legend.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ico_results.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ico_tasks.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ico_toolbox24.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ico_tools.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ico_zoom_to_layer.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_attribute_show.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_clear_selection.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_crs_change.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_element_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_identify.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_label_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_layer_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_layer_clear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_layer_create.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_layer_database_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_layer_db_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_layer_raster_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_layer_remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_layer_vector_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_layer_vector_thematic_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_measure_area.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_measure_distance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_new_map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_pan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_pan1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_project_open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_quit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_save_as.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_save1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_select.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_select_by_polygon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_snapshot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_vertex.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_zoom_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_zoom_max_extents.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_zoom_out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_zoom_to_layer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_zoom_to_selection.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_book24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_broken_robot.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_compass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_component32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_coordinates32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_default24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_docs24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_error_orange32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_error_red32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_eye32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_folder_open32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_geometry.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_globe32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_layers32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_map32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_mapwindow_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_mapwindow24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_measure_length.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_measure32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_open_layer32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_options.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_palette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_paypal24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_picture32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_plugin32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_raster.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_scale24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_server32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_test24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_tiles32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_toolbox16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_toolbox24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_tools32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_tune32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_vector32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_vector32_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_warning64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_widgets32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_wms_add24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_world_grid32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_zoom_next24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_zoom_prev24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mapwindow_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VastGIS.Common.Api\VastGIS.Common.Api.csproj">
+      <Project>{ecabdb45-3d7b-4e33-84ed-f6ec5e46d6cb}</Project>
+      <Name>VastGIS.Common.Api</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VastGIS.Common.Plugins\VastGIS.Common.Plugins.csproj">
+      <Project>{37D59241-BE67-401E-83FE-444A4C928CE0}</Project>
+      <Name>VastGIS.Common.Plugins</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VastGIS.Common.Service\VastGIS.Common.Service.csproj">
+      <Project>{68ce7f40-d582-46cd-b3c0-0c27ed811b49}</Project>
+      <Name>VastGIS.Common.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VastGIS.Common.Shared\VastGIS.Common.Shared.csproj">
+      <Project>{4a5cefd0-73ec-459c-bb71-9dc992fecfa6}</Project>
+      <Name>VastGIS.Common.Shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VastGIS.Common.UI\VastGIS.Common.UI.csproj">
+      <Project>{9e374157-77cf-4d02-96fb-97621862ec23}</Project>
+      <Name>VastGIS.Common.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VastGIS.DI.Castle\VastGIS.DI.Castle.csproj">
+      <Project>{47C9BC75-9672-4FC4-9D07-2D1670E03554}</Project>
+      <Name>VastGIS.DI.Castle</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.106.0\build\net45\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.106.0\build\net45\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.106.0\build\net45\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.106.0\build\net45\System.Data.SQLite.Core.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
