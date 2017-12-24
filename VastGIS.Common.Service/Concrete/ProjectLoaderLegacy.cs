@@ -38,21 +38,17 @@ namespace VastGIS.Common.Services.Concrete
         /// <summary>
         /// Restores the state of application by populating application _context after project file was deserialized.
         /// </summary>
-        public bool Restore(MapWin4Project project, string filename)
+        public bool Restore(VastGISProject project, string filename)
         {
             if (project == null)
             {
                 return false;
             }
-
-       
-
+            
             string path = Path.GetDirectoryName(filename);
-
             try
             {
              
-
                 return true;
             }
             finally

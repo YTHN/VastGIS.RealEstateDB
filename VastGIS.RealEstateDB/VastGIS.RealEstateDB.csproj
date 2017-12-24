@@ -37,8 +37,24 @@
     <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="gdalconst_csharp, Version=1.0.5387.28601, Culture=neutral, PublicKeyToken=db5a52b08dc5b321, processorArchitecture=MSIL">
+      <HintPath>..\packages\GDAL.1.11.1\lib\net40\gdalconst_csharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="gdal_csharp, Version=1.0.5387.28601, Culture=neutral, PublicKeyToken=db5a52b08dc5b321, processorArchitecture=MSIL">
+      <HintPath>..\packages\GDAL.1.11.1\lib\net40\gdal_csharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="nunit.framework, Version=3.9.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.9.0\lib\net45\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ogr_csharp, Version=1.0.5387.28600, Culture=neutral, PublicKeyToken=db5a52b08dc5b321, processorArchitecture=MSIL">
+      <HintPath>..\packages\GDAL.1.11.1\lib\net40\ogr_csharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="osr_csharp, Version=1.0.5387.28600, Culture=neutral, PublicKeyToken=db5a52b08dc5b321, processorArchitecture=MSIL">
+      <HintPath>..\packages\GDAL.1.11.1\lib\net40\osr_csharp.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="SpatialiteSharp, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -134,6 +150,7 @@
     <Compile Include="Forms\frmCreateDB.Designer.cs">
       <DependentUpon>frmCreateDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="GdalConfiguration.cs" />
     <Compile Include="Helpers\DockPanelHelper.cs" />
     <Compile Include="Helpers\Sandbox.cs" />
     <Compile Include="Helpers\UpdaterHelper.cs" />
@@ -785,7 +802,39 @@
     <Content Include="Coordinate Systems\Projected Coordinate Systems\Xian 1980\Xian 1980 GK Zone 23.prj">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Data\test2.dxf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\icon_mapwindow.ico" />
+    <None Include="Resources\CadastralFeatureSelect32.png" />
+    <None Include="Resources\CadastralParcelEdited32.png" />
+    <None Include="Resources\CadastralParcelNew32.png" />
+    <None Include="Resources\EditingAddVertexTool32.png" />
+    <None Include="Resources\EditingAdjustmentAttributeTransfer32.png" />
+    <None Include="Resources\EditingDeleteVertexTool32.png" />
+    <None Include="Resources\EditingDistanceDistanceConstructor32.png" />
+    <None Include="Resources\EditingMidpointConstructor32.png" />
+    <None Include="Resources\EditingPointConstructor32.png" />
+    <None Include="Resources\EditingSelectVertexTool32.png" />
+    <None Include="Resources\EditingSketchPropertiesWindowShow32.png" />
+    <None Include="Resources\EditingSplitPolygons32.png" />
+    <None Include="Resources\LocationGetLine32.png" />
+    <None Include="Resources\LocationGetPolygon32.png" />
+    <None Include="Resources\LocationGoTo32.png" />
+    <None Include="Resources\LocationsSymbolized_B32.png" />
+    <None Include="Resources\PointDisplay32.png" />
+    <None Include="Resources\RepresentationMoveTool32.png" />
+    <None Include="Resources\SchematicVertexMove32.png" />
+    <None Include="Resources\TinEditingTinNodeMove32.png" />
+    <None Include="Resources\Basemap32.png" />
+    <None Include="Resources\CadastralDuplicateParcel32.png" />
+    <None Include="Resources\CadastralMergePoint32.png" />
+    <None Include="Resources\CadastralParcelWindowDetailsShow32.png" />
+    <None Include="Resources\CadastralSelectLineTemplate32.png" />
+    <Content Include="GdalConfiguration.vb" />
+    <Content Include="Templates\Dictionary.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="x64\spatialite\libfreexl-1.dll" />
     <Content Include="x64\spatialite\libgcc_s_seh_64-1.dll" />
     <Content Include="x64\spatialite\libgeos-3-4-2.dll" />
@@ -1134,6 +1183,8 @@
     <None Include="Resources\mapwindow_logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Commands\Data\" />
+    <Folder Include="Commands\Exchange\" />
     <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
@@ -1161,6 +1212,14 @@
       <Project>{47C9BC75-9672-4FC4-9D07-2D1670E03554}</Project>
       <Name>VastGIS.DI.Castle</Name>
     </ProjectReference>
+    <ProjectReference Include="..\VastGIS.RealEastate.Api\VastGIS.RealEstate.Api.csproj">
+      <Project>{9609A967-A37F-45A1-AD60-79E92BDBCE68}</Project>
+      <Name>VastGIS.RealEstate.Api</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VastGIS.RealEstate.Data\VastGIS.RealEstate.Data.csproj">
+      <Project>{135434de-e426-4d69-b1d7-df45a1a3c5bc}</Project>
+      <Name>VastGIS.RealEstate.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.106.0\build\net45\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.106.0\build\net45\System.Data.SQLite.Core.targets')" />
@@ -1169,7 +1228,9 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.106.0\build\net45\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.106.0\build\net45\System.Data.SQLite.Core.targets'))" />
+    <Error Condition="!Exists('..\packages\GDAL.Native.1.11.1\build\net40\GDAL.Native.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\GDAL.Native.1.11.1\build\net40\GDAL.Native.targets'))" />
   </Target>
+  <Import Project="..\packages\GDAL.Native.1.11.1\build\net40\GDAL.Native.targets" Condition="Exists('..\packages\GDAL.Native.1.11.1\build\net40\GDAL.Native.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

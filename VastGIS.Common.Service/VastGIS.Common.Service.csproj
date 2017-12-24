@@ -88,7 +88,7 @@
     </Compile>
     <Compile Include="Serialization\IProjectLoader.cs" />
     <Compile Include="Serialization\ISecureContext.cs" />
-    <Compile Include="Serialization\Legacy\MapWin4Project.cs" />
+    <Compile Include="Serialization\Legacy\VastGISProject.cs" />
     <Compile Include="Serialization\Legacy\MapWin4XsdProject.cs" />
     <Compile Include="Serialization\Legacy\MapWindow4Config.cs" />
     <Compile Include="Serialization\XmlConfig.cs" />

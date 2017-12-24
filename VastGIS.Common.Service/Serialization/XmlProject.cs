@@ -21,24 +21,32 @@ namespace VastGIS.Common.Services.Serialization
     {
         public XmlProject(ISecureContext context, string filename)
         {
-           
-
+            //ProjectName = context.VastProject.ProjectName;
+            //Database = context.VastProject.Database;
+            //AttachmentPath = context.VastProject.AttachmentPath;
             Plugins = context.PluginManager.ActivePlugins.Select(p => new XmlPlugin()
             {
                 Name = p.Identity.Name,
                 Guid = p.Identity.Guid
             }).ToList();
-
-          
-
             Settings = new XmlProjectSettings {SavedAsFilename = filename};
-
-           
         }
      
-        [DataMember] public XmlProjectSettings Settings { get; set; }
+        [DataMember(Name="ProjectName",Order=0)]
+        public string ProjectName { get; set; }
+
+        [DataMember(Name = "Database", Order = 1)]
+        public string Database { get; set; }
+
+        [DataMember(Name = "AttachmentPath", Order = 2)]
+        public string AttachmentPath { get; set; }
+       
      
-        [DataMember] public List<XmlPlugin> Plugins { get; set; }
-        
+        [DataMember(Name = "Plugins", Order = 3)]
+        public List<XmlPlugin> Plugins { get; set; }
+
+        [DataMember(Name = "Settings", Order = 4)]
+        public XmlProjectSettings Settings { get; set; }
+
     }
 }

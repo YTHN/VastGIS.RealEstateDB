@@ -61,6 +61,176 @@ namespace VastGIS.RealEstateDB.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Basemap32 {
+            get {
+                object obj = ResourceManager.GetObject("Basemap32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CadastralDuplicateParcel32 {
+            get {
+                object obj = ResourceManager.GetObject("CadastralDuplicateParcel32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CadastralFeatureSelect32 {
+            get {
+                object obj = ResourceManager.GetObject("CadastralFeatureSelect32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CadastralMergePoint32 {
+            get {
+                object obj = ResourceManager.GetObject("CadastralMergePoint32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CadastralParcelEdited32 {
+            get {
+                object obj = ResourceManager.GetObject("CadastralParcelEdited32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CadastralParcelNew32 {
+            get {
+                object obj = ResourceManager.GetObject("CadastralParcelNew32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CadastralParcelWindowDetailsShow32 {
+            get {
+                object obj = ResourceManager.GetObject("CadastralParcelWindowDetailsShow32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CadastralSelectLineTemplate32 {
+            get {
+                object obj = ResourceManager.GetObject("CadastralSelectLineTemplate32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EditingAddVertexTool32 {
+            get {
+                object obj = ResourceManager.GetObject("EditingAddVertexTool32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EditingAdjustmentAttributeTransfer32 {
+            get {
+                object obj = ResourceManager.GetObject("EditingAdjustmentAttributeTransfer32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EditingDeleteVertexTool32 {
+            get {
+                object obj = ResourceManager.GetObject("EditingDeleteVertexTool32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EditingDistanceDistanceConstructor32 {
+            get {
+                object obj = ResourceManager.GetObject("EditingDistanceDistanceConstructor32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EditingMidpointConstructor32 {
+            get {
+                object obj = ResourceManager.GetObject("EditingMidpointConstructor32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EditingPointConstructor32 {
+            get {
+                object obj = ResourceManager.GetObject("EditingPointConstructor32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EditingSelectVertexTool32 {
+            get {
+                object obj = ResourceManager.GetObject("EditingSelectVertexTool32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EditingSketchPropertiesWindowShow32 {
+            get {
+                object obj = ResourceManager.GetObject("EditingSketchPropertiesWindowShow32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EditingSplitPolygons32 {
+            get {
+                object obj = ResourceManager.GetObject("EditingSplitPolygons32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon ico_legend {
@@ -923,9 +1093,89 @@ namespace VastGIS.RealEstateDB.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LocationGetLine32 {
+            get {
+                object obj = ResourceManager.GetObject("LocationGetLine32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LocationGetPolygon32 {
+            get {
+                object obj = ResourceManager.GetObject("LocationGetPolygon32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LocationGoTo32 {
+            get {
+                object obj = ResourceManager.GetObject("LocationGoTo32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LocationsSymbolized_B32 {
+            get {
+                object obj = ResourceManager.GetObject("LocationsSymbolized_B32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mapwindow_logo {
             get {
                 object obj = ResourceManager.GetObject("mapwindow_logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PointDisplay32 {
+            get {
+                object obj = ResourceManager.GetObject("PointDisplay32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RepresentationMoveTool32 {
+            get {
+                object obj = ResourceManager.GetObject("RepresentationMoveTool32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SchematicVertexMove32 {
+            get {
+                object obj = ResourceManager.GetObject("SchematicVertexMove32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TinEditingTinNodeMove32 {
+            get {
+                object obj = ResourceManager.GetObject("TinEditingTinNodeMove32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

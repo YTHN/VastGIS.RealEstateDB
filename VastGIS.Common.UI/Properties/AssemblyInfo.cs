@@ -37,4 +37,6 @@ using System.Runtime.InteropServices;
 
 [assembly:InternalsVisibleTo("VastGIS.Common.Services")]
 [assembly: InternalsVisibleTo("VastGIS.RealEstateDB")]
+[assembly: InternalsVisibleTo("VastGIS.RealEstate.Api")]
+
 

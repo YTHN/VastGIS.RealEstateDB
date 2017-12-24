@@ -2,6 +2,7 @@
 {
     internal class MenuKeys
     {
+        public const string NewProject = "FileNewProject";
         public const string CreateZDDatabase = "CreateZDDatabase";
 
 
@@ -61,6 +62,8 @@
         public const string SupportedDrivers = "HelpSupportedDrivers";
         public const string ComUsage = "ComUsage";
         public const string Welcome = "HelpWelcome";
+
+       
     }
 }
 

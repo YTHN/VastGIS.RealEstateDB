@@ -20,7 +20,6 @@ namespace VastGIS.Common.Services.Concrete
     public class ProjectLoader : ProjectLoaderBase, IProjectLoader
     {
         private readonly ImageSerializationService _imageSerializationService;
-     
         private readonly IBroadcasterService _broadcaster;
         private readonly ISecureContext _context;
 
@@ -30,9 +29,7 @@ namespace VastGIS.Common.Services.Concrete
             if (imageSerializationService == null) throw new ArgumentNullException("imageSerializationService");
           
             _imageSerializationService = imageSerializationService;
-         
             _broadcaster = broadcaster;
-
             _context = context as ISecureContext;
             if (_context == null)
             {
@@ -43,32 +40,25 @@ namespace VastGIS.Common.Services.Concrete
         /// <summary>
         /// Restores the state of application by populating application _context after project file was deserialized.
         /// </summary>
-        public bool Restore(XmlProject project)
+        public bool Restore(XmlProject project, ProjectLoadingView loadingForm)
         {
-          
-
-           
-
+          _context.View.Lock();
             try
             {
-              
-
+                loadingForm.ShowProgress(30, "正在加载数据库");
+                //((ISecureContext) _context).VastProject = project;
+                loadingForm.ShowProgress(100, "正在加载插件");
                 RestorePlugins(project);
-
-             
-            
-
                 return true;
             }
             finally
             {
-              
+                _context.VastProject = project;
+                _context.View.Unlock();
             }
         }
 
        
-
-      
 
         private void RestorePlugins(XmlProject project)
         {
@@ -78,15 +68,7 @@ namespace VastGIS.Common.Services.Concrete
             }
         }
 
-     
-
-     
-
-      
-       
 
        
-
-     
     }
 }

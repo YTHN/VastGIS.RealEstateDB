@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VastGIS.RealEastate.Api.Enums
+namespace VastGIS.RealEstate.Api.Enums
 {
     public enum REClassType
     {
-        SpatialData,
-        TableData
+        Dataset=0,
+        SpatialData=1,
+        TableData=2
     }
 
     public enum REGeometryType
@@ -23,4 +24,13 @@ namespace VastGIS.RealEastate.Api.Enums
         MultiPolygon=6,
         GeometryCollection=7
     }
+
+    public enum CADGeometryType
+    {
+        Point,
+        Polyline,
+        Polygon,
+        Text
+    }
+
 }

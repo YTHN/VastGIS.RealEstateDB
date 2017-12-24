@@ -1,17 +1,14 @@
-﻿
-using Syncfusion.GridHelperClasses;
-using VastGIS.Common.UI.Forms;
-using VastGIS.Common.UI.Helpers;
-
+﻿using Syncfusion.GridHelperClasses;
 using Syncfusion.Windows.Forms.Grid.Grouping;
 using VastGIS.Common.Plugins.Interfaces;
 using VastGIS.Common.Plugins.Mvp;
-using VastGIS.RealEstateDB;
+using VastGIS.Common.UI.Forms;
+using VastGIS.Common.UI.Helpers;
 using VastGIS.RealEstateDB.Menu;
 using VastGIS.RealEstateDB.Views;
 using VastGIS.RealEstateDB.Views.Abstract;
 
-namespace VastGIS
+namespace VastGIS.RealEstateDB
 {
     internal static class CompositionRoot
     {

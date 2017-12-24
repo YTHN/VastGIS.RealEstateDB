@@ -36,27 +36,29 @@
             this.txtSR = new System.Windows.Forms.TextBox();
             this.btnCreate = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 13);
+            this.label1.Location = new System.Drawing.Point(12, 51);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.Size = new System.Drawing.Size(65, 12);
             this.label1.TabIndex = 0;
-            this.label1.Text = "数据库：";
+            this.label1.Text = "所在位置：";
             // 
             // txtDB
             // 
-            this.txtDB.Location = new System.Drawing.Point(60, 10);
+            this.txtDB.Location = new System.Drawing.Point(83, 48);
             this.txtDB.Name = "txtDB";
-            this.txtDB.Size = new System.Drawing.Size(304, 21);
+            this.txtDB.Size = new System.Drawing.Size(280, 21);
             this.txtDB.TabIndex = 1;
             // 
             // btnDB
             // 
-            this.btnDB.Location = new System.Drawing.Point(369, 8);
+            this.btnDB.Location = new System.Drawing.Point(368, 46);
             this.btnDB.Name = "btnDB";
             this.btnDB.Size = new System.Drawing.Size(75, 23);
             this.btnDB.TabIndex = 2;
@@ -67,15 +69,15 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 44);
+            this.label2.Location = new System.Drawing.Point(12, 82);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.Size = new System.Drawing.Size(65, 12);
             this.label2.TabIndex = 3;
-            this.label2.Text = "坐标系：";
+            this.label2.Text = "坐标基准：";
             // 
             // btnSR
             // 
-            this.btnSR.Location = new System.Drawing.Point(369, 39);
+            this.btnSR.Location = new System.Drawing.Point(368, 77);
             this.btnSR.Name = "btnSR";
             this.btnSR.Size = new System.Drawing.Size(75, 23);
             this.btnSR.TabIndex = 5;
@@ -85,14 +87,14 @@
             // 
             // txtSR
             // 
-            this.txtSR.Location = new System.Drawing.Point(60, 41);
+            this.txtSR.Location = new System.Drawing.Point(83, 79);
             this.txtSR.Name = "txtSR";
-            this.txtSR.Size = new System.Drawing.Size(304, 21);
+            this.txtSR.Size = new System.Drawing.Size(280, 21);
             this.txtSR.TabIndex = 4;
             // 
             // btnCreate
             // 
-            this.btnCreate.Location = new System.Drawing.Point(267, 69);
+            this.btnCreate.Location = new System.Drawing.Point(267, 111);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(75, 23);
             this.btnCreate.TabIndex = 6;
@@ -103,7 +105,7 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(369, 69);
+            this.btnCancel.Location = new System.Drawing.Point(369, 111);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 7;
@@ -111,11 +113,29 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(83, 12);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(280, 21);
+            this.txtName.TabIndex = 9;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 15);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 12);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "项目名称：";
+            // 
             // frmCreateDB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(456, 104);
+            this.ClientSize = new System.Drawing.Size(456, 146);
+            this.Controls.Add(this.txtName);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.btnSR);
@@ -127,7 +147,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmCreateDB";
-            this.Text = "创建数据库";
+            this.Text = "创建不动产项目";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,6 +163,8 @@
         private System.Windows.Forms.TextBox txtSR;
         private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.Label label3;
     }
 }
 

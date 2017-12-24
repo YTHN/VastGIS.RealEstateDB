@@ -3,6 +3,7 @@ using System.Data.SQLite;
 using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
+using VastGIS.Common.Plugins.Services;
 using VastGIS.Common.UI.Forms;
 using VastGIS.RealEstateDB.Helpers;
 
@@ -23,65 +24,46 @@ namespace VastGIS.RealEstateDB.Forms
 
         private void btnDB_Click(object sender, EventArgs e)
         {
-            SaveFileDialog dialog = new SaveFileDialog();
-            dialog.Title = "数据库";
-            dialog.Filter = "Sqlite数据库(*.sqlite)|*.sqlite";
+            FolderBrowserDialog dialog = new FolderBrowserDialog();
+            dialog.Description = "项目保存位置";
+            dialog.ShowNewFolderButton = true;
             if (dialog.ShowDialog() != DialogResult.OK) return ;
-            txtDB.Text = dialog.FileName;
-
-            
+           
+            txtDB.Text = dialog.SelectedPath;
         }
 
-        public string DatabaseName { get { return txtDB.Text; } }
+        public string ProjectFile { get { return txtDB.Text; } }
+        public string ProjectName { get { return txtName.Text; } }
+
+        public int EpsGCode { get { return Convert.ToInt16(txtSR.Tag); } }
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            var spatialitePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Templates\\vastgis.sqlite");
-            FileInfo tempFile = new FileInfo(spatialitePath);
-            tempFile.CopyTo(txtDB.Text);
-            //SQLiteConnection.CreateFile(txtDB.Text);
-            SQLiteConnection conn = new SQLiteConnection("Data Source=" + txtDB.Text + "; Version = 3;");
-            conn.Open();
-            SpatialiteSharp.SpatialiteLoader.Load(conn);
-            SQLiteCommand command=new SQLiteCommand(ZDSqlHelper.C,conn);
-            command.ExecuteNonQuery();
-            command.CommandText = ZDSqlHelper.QLR;
-            command.ExecuteNonQuery();
-            command.CommandText = ZDSqlHelper.FDCQXM;
-            command.ExecuteNonQuery();
-            command.CommandText = ZDSqlHelper.H;
-            command.ExecuteNonQuery();
-            command.CommandText = ZDSqlHelper.JSYDSYQ;
-            command.ExecuteNonQuery();
-            command.CommandText = ZDSqlHelper.TDSYQ;
-            command.ExecuteNonQuery();
-            command.CommandText = ZDSqlHelper.DJQ;
-            command.ExecuteNonQuery();
-            command.CommandText = "SELECT AddGeometryColumn('DJQ','geometry'," +txtSR.Tag.ToString()+
-                                  ",'POLYGON','XY');";
-            command.ExecuteNonQuery();
-            command.CommandText = ZDSqlHelper.DJZQ;
-            command.ExecuteNonQuery();
-            command.CommandText = "SELECT AddGeometryColumn('DJZQ','geometry'," + txtSR.Tag.ToString() +
-                                  ",'POLYGON','XY');";
-            command.ExecuteNonQuery();
-            command.CommandText = ZDSqlHelper.ZDJBXX;
-            command.ExecuteNonQuery();
-            command.CommandText = "SELECT AddGeometryColumn('ZDJBXX','geometry'," + txtSR.Tag.ToString() +
-                                  ",'POLYGON','XY');";
-            command.ExecuteNonQuery();
-            command.CommandText = ZDSqlHelper.JZX;
-            command.ExecuteNonQuery();
-            command.CommandText = "SELECT AddGeometryColumn('jzx','geometry'," + txtSR.Tag.ToString() +
-                                  ",'LINESTRING','XY');";
-            command.ExecuteNonQuery();
-            command.CommandText = ZDSqlHelper.JZD;
-            command.ExecuteNonQuery();
-            command.CommandText = "SELECT AddGeometryColumn('jzd','geometry'," + txtSR.Tag.ToString() +
-                                  ",'MULTIPOINT','XY');";
-            command.ExecuteNonQuery();
-            conn.Close();
-            MessageBox.Show("数据库创建成功!", "信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            DialogResult=DialogResult.OK;
+            if (string.IsNullOrEmpty(txtDB.Text))
+            {
+                MessageService.Current.Warn("请输入项目文件保存位置!");
+               
+                return;
+            }
+            string folder = txtDB.Text+"\\"+txtName.Text.Trim();
+            if (Directory.Exists(folder))
+            {
+                if (Directory.GetDirectories(folder).Length > 0 || Directory.GetFiles(folder).Length > 0)
+                {
+                    MessageService.Current.Warn("'文件夹不为空！");
+                    return;
+                }
+            }
+            if (string.IsNullOrEmpty(txtName.Text))
+            {
+                MessageService.Current.Warn("请输入项目名称!");
+                return;
+            }
+            if (string.IsNullOrEmpty(txtSR.Tag.ToString()))
+            {
+                MessageService.Current.Warn("请选择坐标基准!");
+                return;
+            }
+            DialogResult =DialogResult.OK;
         }
 
         private void btnSR_Click(object sender, EventArgs e)

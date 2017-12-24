@@ -19,8 +19,8 @@ namespace VastGIS.Common.Services.Concrete
 {
     public class ProjectService: IProjectService, IProject
     {
-        private const string ProjectFilter = "VastGIS 5 project (*.vgproj)|*.vgproj";
-        private const int ProjectFilterIndex = 3;
+        private const string ProjectFilter = "VastGIS项目文件 (*.vgproj)|*.vgproj";
+        private const int ProjectFilterIndex = 0;
 
         private ProjectLoadingView _loadingForm;
         private readonly IAppContext _context;
@@ -91,27 +91,28 @@ namespace VastGIS.Common.Services.Concrete
 
         public bool TryClose()
         {
-            var args = new CancelEventArgs();
+            //var args = new CancelEventArgs();
 
-            if (!(_context is ISecureContext))
-            {
-                throw new ApplicationException("Invalid application context");
-            }
+            //if (!(_context is ISecureContext))
+            //{
+            //    throw new ApplicationException("Invalid application context");
+            //}
 
-            _broadcaster.BroadcastEvent(p => p.ProjectClosing_, this, args);
-            if (args.Cancel)
-            {
-                return false;
-            }
-            
-            if (TryCloseCore())
-            {
-                Clear();
+            //_broadcaster.BroadcastEvent(p => p.ProjectClosing_, this, args);
+            //if (args.Cancel)
+            //{
+            //    return false;
+            //}
 
-                _broadcaster.BroadcastEvent(p => p.ProjectClosed_, this, args);
-                return true;
-            }
-            return false;
+            //if (TryCloseCore())
+            //{
+            //    Clear();
+
+            //    _broadcaster.BroadcastEvent(p => p.ProjectClosed_, this, args);
+            //    return true;
+            //}
+            //return false;
+            return true;
         }
 
         private void Clear()
@@ -207,7 +208,7 @@ namespace VastGIS.Common.Services.Concrete
 
                     // PM:
                     // MessageService.Current.Info("Project was saved: " + filename);
-                    Logger.Current.Info("Project was saved: " + filename);
+                    Logger.Current.Info("项目保存为: " + filename);
                 }
 
                 return true;
@@ -233,7 +234,7 @@ namespace VastGIS.Common.Services.Concrete
 
         private ProjectLoaderBase GetCurrentLoader(bool legacy = false)
         {
-            return legacy ? _projectLoaderLegacy : (ProjectLoaderBase)_projectLoader;
+            return  (ProjectLoaderBase)_projectLoader;
         }
 
         public bool Open(string filename, bool silent = true)
@@ -250,25 +251,18 @@ namespace VastGIS.Common.Services.Concrete
 
             ShowLoadingForm(filename);
 
-            bool legacy = !filename.ToLower().EndsWith(".mwproj");
+            bool legacy = !filename.ToLower().EndsWith(".vgproj");
             var loader = GetCurrentLoader(legacy);
             loader.ProgressChanged += OnLoadingProgressChanged;
 
             bool result;
 
             _context.View.Lock();
-
-            if (legacy)
-            {
-                result = OpenLegacyProject(filename);
-            }
-            else
-            {
-                result = OpenCore(filename, silent);
-            }
+            result = OpenCore(filename, silent);
+           
 
             // let's redraw map before hiding the progress
-            _loadingForm.ShowProgress(100, "Rendering map...");
+            _loadingForm.ShowProgress(100, "加载数据...");
           
             _context.View.Unlock();
 
@@ -277,6 +271,7 @@ namespace VastGIS.Common.Services.Concrete
             loader.ProgressChanged -= OnLoadingProgressChanged;
 
             HideLoadingForm();
+            
 
             return result;
         }
@@ -321,47 +316,7 @@ namespace VastGIS.Common.Services.Concrete
             return true;
         }
 
-        private bool OpenLegacyProject(string filename, bool silent = false)
-        {
-            Logger.Current.Info("Start opening legacy MapWindow 4 project: " + filename);
-
-            using (var reader = new StreamReader(filename))
-            {
-                string state = reader.ReadToEnd();
-
-                try
-                {
-                    var project = state.DeserializeFromXml<MapWin4Project>();
-                    if (!_projectLoaderLegacy.Restore(project, filename))
-                    {
-                        Clear();
-                        SetEmptyProject();
-                        return false;
-                    }
-
-                    _filename = string.Empty;       // it must be saved in a new format
-
-                    string message = "Legacy MapWindow 4 project was loaded: " + filename;
-
-                    if (!silent)
-                    {
-                        MessageService.Current.Info(message);
-                    }
-
-                    Logger.Current.Info(message);
-
-                    return true;
-                }
-                catch(Exception ex)
-                {
-                    string msg = "Invalid project format: " + filename;
-                    Logger.Current.Warn(msg, ex);
-                    MessageService.Current.Warn(msg);
-                }
-            }
-
-            return false;
-        }
+     
 
         private bool OpenCore(string filename, bool silent = true)
         {
@@ -377,9 +332,10 @@ namespace VastGIS.Common.Services.Concrete
                 }
 
                 project.Settings.LoadAsFilename = filename;
-
-                if (!_projectLoader.Restore(project))
+                _filename = filename;
+                if (!_projectLoader.Restore(project,_loadingForm))
                 {
+                    _filename = "";
                     Clear();
                     SetEmptyProject();
                     return false;
@@ -391,7 +347,7 @@ namespace VastGIS.Common.Services.Concrete
 
                 if (!silent)
                 {
-                    MessageService.Current.Info("Project was loaded: " + filename);
+                    MessageService.Current.Info("打开项目: " + filename);
                 }
 
                 Logger.Current.Info("Project was loaded: " + filename);

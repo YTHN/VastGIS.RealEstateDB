@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using VastGIS.Common.Plugins.Events;
+using VastGIS.Common.Services.Views;
 
 namespace VastGIS.Common.Services.Serialization
 {
@@ -14,6 +15,6 @@ namespace VastGIS.Common.Services.Serialization
 
     public interface IProjectLoader : IProjectLoaderBase
     {
-        bool Restore(XmlProject project);
+        bool Restore(XmlProject project, ProjectLoadingView loadingForm);
     }
 }

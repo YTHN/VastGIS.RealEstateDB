@@ -24,7 +24,6 @@ using VastGIS.Common.Plugins.Services;
 using VastGIS.Common.Shared;
 using VastGIS.Helpers;
 using VastGIS.Listeners;
-
 using VastGIS.RealEstateDB.Controls;
 using VastGIS.RealEstateDB.Forms;
 using VastGIS.RealEstateDB.Helpers;
@@ -40,9 +39,9 @@ namespace VastGIS.RealEstateDB.Views
     {
         private readonly IConfigService _configService;
         private readonly IAppContext _context;
-    
+
         private readonly MainPluginListener _mainPluginListener;
-      
+
         private readonly MenuGenerator _menuGenerator;
         private readonly MenuListener _menuListener;
         private readonly MenuUpdater _menuUpdater;
@@ -50,29 +49,29 @@ namespace VastGIS.RealEstateDB.Views
         private readonly StatusBarListener _statusBarListener;
 
         public MainPresenter(
-            IAppContext context, 
-            IMainView view, 
-            IProjectService projectService, 
-            IConfigService configService 
-          )
+            IAppContext context,
+            IMainView view,
+            IProjectService projectService,
+            IConfigService configService
+        )
             : base(view)
         {
             Logger.Current.Trace("Start MainPresenter");
             if (view == null) throw new ArgumentNullException("view");
             if (projectService == null) throw new ArgumentNullException("projectService");
             if (configService == null) throw new ArgumentNullException("configService");
-          
+
             // PM 2016-03-02 Added:
             //修改，依据界面类型来判断是否为一般形态还是Ribbon
-          
+
 
             _context = context;
             _projectService = projectService;
             _configService = configService;
-
+            GdalConfiguration.ConfigureOgr();
             GlobalListeners.Attach(Logger.Current);
 
-          
+
             try
             {
                 var appContext = context as AppContext;
@@ -83,7 +82,6 @@ namespace VastGIS.RealEstateDB.Views
 
                 appContext.Init(view, projectService, configService);
 
-           
 
                 view.ViewClosing += OnViewClosing;
                 view.ViewUpdating += OnViewUpdating;
@@ -93,14 +91,8 @@ namespace VastGIS.RealEstateDB.Views
                 _statusBarListener = container.GetSingleton<StatusBarListener>();
                 _menuGenerator = container.GetSingleton<MenuGenerator>();
                 _menuListener = container.GetSingleton<MenuListener>();
-              
                 _mainPluginListener = container.GetSingleton<MainPluginListener>();
-                
-             
-               
-
                 _menuUpdater = new MenuUpdater(_context, PluginIdentity.Default);
-
                 SplashView.Instance.ShowStatus("Loading plugins");
                 appContext.InitPlugins(configService); // must be called after docking is initialized
 
@@ -110,7 +102,6 @@ namespace VastGIS.RealEstateDB.Views
             }
             finally
             {
-              
             }
 
             View.AsForm.Shown += ViewShown;
@@ -150,9 +141,8 @@ namespace VastGIS.RealEstateDB.Views
 
         private void OnBeforeShow()
         {
-           
-                _menuListener.RunCommand(MenuKeys.Welcome);
-            
+            _menuListener.RunCommand(MenuKeys.Welcome);
+
 
             UpdaterHelper.GetLatestVersion();
         }
@@ -194,7 +184,6 @@ namespace VastGIS.RealEstateDB.Views
             //        }
             //    }
             //}
-         
         }
 
         private void OnViewUpdating(object sender, RenderedEventArgs e)

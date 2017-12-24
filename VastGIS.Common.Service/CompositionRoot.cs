@@ -15,12 +15,9 @@ namespace VastGIS.Common.Services
         public static void Compose(IApplicationContainer container)
         {
             container.RegisterService<IFileDialogService, FileDialogService>()
-                .RegisterService<IMessageService, MessageService>() // FlexibleMessageService
-
+                .RegisterService<IMessageService, MessageService>() 
                 .RegisterSingleton<ILoggingService, LoggingService>()
-
                 .RegisterSingleton<IProjectService, ProjectService>()
-
                 .RegisterService<ImageSerializationService>()
                 .RegisterService<ProjectLoaderLegacy>()
                 .RegisterSingleton<ITempFileService, TempFileService>()

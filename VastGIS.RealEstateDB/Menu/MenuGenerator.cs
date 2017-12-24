@@ -51,12 +51,14 @@ namespace VastGIS.RealEstateDB.Menu
             menu.AddToolStripEx("toolStripViewSelection", "选择", "tabView");
 
 
-            menu.AddButton(_commands[MenuKeys.NewMap]);
+            menu.AddButton(_commands[MenuKeys.NewProject]);
        
 
             menu.AddButton(_commands[MenuKeys.OpenProject]);
             menu.AddButton(_commands[MenuKeys.SaveProject]);
             menu.AddButton(_commands[MenuKeys.SaveProjectAs]);
+
+            menu.AddButton(_commands["reImportDXF"]);
 
             menu.AddButton(_commands[Common.Plugins.Menu.MenuKeys.Quit]);
         }

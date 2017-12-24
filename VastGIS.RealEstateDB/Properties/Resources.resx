@@ -379,4 +379,79 @@
   <data name="mapwindow_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mapwindow_logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Basemap32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Basemap32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CadastralDuplicateParcel32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CadastralDuplicateParcel32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CadastralFeatureSelect32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CadastralFeatureSelect32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CadastralMergePoint32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CadastralMergePoint32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CadastralParcelEdited32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CadastralParcelEdited32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CadastralParcelNew32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CadastralParcelNew32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CadastralParcelWindowDetailsShow32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CadastralParcelWindowDetailsShow32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CadastralSelectLineTemplate32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CadastralSelectLineTemplate32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EditingAddVertexTool32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EditingAddVertexTool32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EditingAdjustmentAttributeTransfer32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EditingAdjustmentAttributeTransfer32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EditingDeleteVertexTool32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EditingDeleteVertexTool32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EditingDistanceDistanceConstructor32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EditingDistanceDistanceConstructor32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EditingMidpointConstructor32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EditingMidpointConstructor32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EditingPointConstructor32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EditingPointConstructor32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EditingSelectVertexTool32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EditingSelectVertexTool32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EditingSketchPropertiesWindowShow32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EditingSketchPropertiesWindowShow32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EditingSplitPolygons32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EditingSplitPolygons32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LocationGetLine32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LocationGetLine32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LocationGetPolygon32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LocationGetPolygon32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LocationGoTo32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LocationGoTo32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LocationsSymbolized_B32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LocationsSymbolized_B32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PointDisplay32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PointDisplay32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RepresentationMoveTool32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RepresentationMoveTool32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SchematicVertexMove32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SchematicVertexMove32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TinEditingTinNodeMove32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TinEditingTinNodeMove32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

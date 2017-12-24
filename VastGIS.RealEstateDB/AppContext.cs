@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading;
 using System.Windows.Forms;
 using VastGIS.Common.Api.Enums;
@@ -16,12 +17,16 @@ using VastGIS.Common.Plugins.Interfaces;
 using VastGIS.Common.Plugins.Mvp;
 using VastGIS.Common.Plugins.Services;
 using VastGIS.Common.Services.Serialization;
+using VastGIS.Common.Services.Serialization.Legacy;
 using VastGIS.Common.Shared;
 using VastGIS.Common.UI.Docking;
 using VastGIS.Common.UI.Forms;
 using VastGIS.Common.UI.Menu;
 using VastGIS.Common.UI.Style;
 using VastGIS.Helpers;
+using VastGIS.RealEstate.Api.Concrete;
+using VastGIS.RealEstate.Api.Interface;
+using VastGIS.RealEstate.Data;
 using VastGIS.RealEstateDB.Controls;
 using VastGIS.RealEstateDB.Helpers;
 
@@ -30,20 +35,18 @@ namespace VastGIS.RealEstateDB
     /// <summary>
     /// Central class storing all the resource avaialable for plugins.
     /// </summary>
-    public class AppContext : ISecureContext
+    public class AppContext : ISecureContext, IRealEstateContext
     {
         private readonly IApplicationContainer _container;
-
         private readonly IStyleService _styleService;
-       
         private IConfigService _configService;
-
-     
         private IMainView _mainView;
-      
         private IProjectService _project;
-     
         private List<ICommand> _commands;
+      
+        private IREDatabase _realEstateDatabase;
+        private XmlProject _vastProject;
+        
 
         public AppContext(
             IApplicationContainer container,
@@ -74,21 +77,12 @@ namespace VastGIS.RealEstateDB
 
         public IAppView View { get; private set; }
 
-      
-
-     
-
         public IStatusBar StatusBar { get; private set; }
 
         public IMenu Menu { get; private set; }
 
         public IToolbarCollection Toolbars { get; private set; }
-
-     
-
         public IDockPanelCollection DockPanels { get; private set; }
-
-     
 
         public AppConfig Config
         {
@@ -132,6 +126,27 @@ namespace VastGIS.RealEstateDB
                     throw new ArgumentOutOfRangeException("panel");
             }
         }
+
+        public XmlProject VastProject
+        {
+            get { return _vastProject; }
+            set
+            {
+                _vastProject = value;
+                string parentPath = Path.GetDirectoryName(_project.Filename);
+                string dbPath = Path.Combine(parentPath, _vastProject.Database);
+                _realEstateDatabase=new ReDatabase(dbPath);
+                _realEstateDatabase.CheckDatabase();
+            }
+        }
+
+        public IREDatabase RealEstateDatabase
+        {
+            get { return _realEstateDatabase; }
+            set { _realEstateDatabase = value; }
+        }
+
+       
 
         public void Close()
         {
@@ -211,5 +226,9 @@ namespace VastGIS.RealEstateDB
             DockPanels.RemoveItemsForPlugin(e.Identity);
             StatusBar.RemoveItemsForPlugin(e.Identity);
         }
+
+       
+
+       
     }
 }

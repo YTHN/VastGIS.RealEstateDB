@@ -25,7 +25,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VastGIS.Common.UI", "VastGI
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BindingListView", "Utility\BindingListView.csproj", "{75AF36A8-7797-4023-B183-5B63D448420A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VastGIS.RealEastate.Api", "VastGIS.RealEastate.Api\VastGIS.RealEastate.Api.csproj", "{9609A967-A37F-45A1-AD60-79E92BDBCE68}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VastGIS.RealEstate.Api", "VastGIS.RealEastate.Api\VastGIS.RealEstate.Api.csproj", "{9609A967-A37F-45A1-AD60-79E92BDBCE68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VastGIS.RealEstate.Data", "VastGIS.RealEstate.Data\VastGIS.RealEstate.Data.csproj", "{135434DE-E426-4D69-B1D7-DF45A1A3C5BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -179,6 +181,18 @@ Global
 		{9609A967-A37F-45A1-AD60-79E92BDBCE68}.Release|x64.Build.0 = Release|Any CPU
 		{9609A967-A37F-45A1-AD60-79E92BDBCE68}.Release|x86.ActiveCfg = Release|Any CPU
 		{9609A967-A37F-45A1-AD60-79E92BDBCE68}.Release|x86.Build.0 = Release|Any CPU
+		{135434DE-E426-4D69-B1D7-DF45A1A3C5BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{135434DE-E426-4D69-B1D7-DF45A1A3C5BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{135434DE-E426-4D69-B1D7-DF45A1A3C5BC}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{135434DE-E426-4D69-B1D7-DF45A1A3C5BC}.Debug|x64.Build.0 = Debug|Any CPU
+		{135434DE-E426-4D69-B1D7-DF45A1A3C5BC}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{135434DE-E426-4D69-B1D7-DF45A1A3C5BC}.Debug|x86.Build.0 = Debug|Any CPU
+		{135434DE-E426-4D69-B1D7-DF45A1A3C5BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{135434DE-E426-4D69-B1D7-DF45A1A3C5BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{135434DE-E426-4D69-B1D7-DF45A1A3C5BC}.Release|x64.ActiveCfg = Release|Any CPU
+		{135434DE-E426-4D69-B1D7-DF45A1A3C5BC}.Release|x64.Build.0 = Release|Any CPU
+		{135434DE-E426-4D69-B1D7-DF45A1A3C5BC}.Release|x86.ActiveCfg = Release|Any CPU
+		{135434DE-E426-4D69-B1D7-DF45A1A3C5BC}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

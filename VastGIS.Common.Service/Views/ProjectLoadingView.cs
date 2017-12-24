@@ -15,7 +15,7 @@ namespace VastGIS.Common.Services.Views
         {
             InitializeComponent();
 
-            Text = "Loading project: " + Path.GetFileNameWithoutExtension(projectName);
+            Text = "项目: " + Path.GetFileNameWithoutExtension(projectName);
         }
 
         public override Plugins.Mvp.ViewStyle Style
